@@ -1,0 +1,185 @@
+---
+# YAML File Configuration
+yamlFileName: "/Users/chris/project/pwam/prolog_compiler_project.spdl.yaml"
+jsonSchemaPath: "/Users/chris/project/pwam/sdpdl_schema.json"
+
+# Global Project Configuration
+project:
+  name: "Prolog Compiler in Rust"
+  description: "A Prolog compiler targeting WAM, implemented in Rust."
+  repository: "URL to your GitHub repo"
+
+# Developer Configuration
+developer:
+  name: "Your Name"
+  localEnvironment: "Local Environment Description"
+
+# AWS Configuration
+aws:
+  accountID: "Your AWS Account ID"
+  region: "Your AWS Region"
+
+# Tasks, features and testing
+tasks:
+  - task:
+      name: "Lexer"
+      description: "Develop the lexer for the Prolog compiler. The lexer will take raw Prolog source code and produce a stream of tokens for the parser to consume."
+      language: "Rust"
+      scriptLocation: "src/lexer.rs"
+      test:
+        description: "Test the lexer with sample Prolog codes."
+        testScriptLocation: "tests/lexer_test.rs"
+      comments:
+        - "Consider using Rust's Regex crate for matching token patterns."
+        - "This task is likely to be time-consuming. It's better to start early."
+
+  - task:
+      name: "Parser"
+      description: "Develop the parser for the Prolog compiler. The parser will take the stream of tokens produced by the lexer and construct an abstract syntax tree (AST)."
+      language: "Rust"
+      scriptLocation: "src/parser.rs"
+      test:
+        description: "Test the parser with various streams of tokens representing valid and invalid Prolog code."
+        testScriptLocation: "tests/parser_test.rs"
+      comments:
+        - "Make sure to handle corner cases like nested parentheses and comments in the Prolog code."
+
+  - task:
+      name: "Semantic Analyzer"
+      description: "Develop the semantic analyzer for the Prolog compiler. This step checks the AST for semantic errors and adds additional information necessary for code generation."
+      language: "Rust"
+      scriptLocation: "src/semantic_analysis.rs"
+      test:
+        description: "Test the semantic analyzer with various ASTs representing valid and invalid Prolog code."
+        testScriptLocation: "tests/semantic_analysis_test.rs"
+
+  - task:
+      name: "Intermediate Code Generation"
+      description: "Develop the intermediate code generator for the Prolog compiler. This step transforms the annotated AST into an intermediate code representation."
+      language: "Rust"
+      scriptLocation: "src/intermediate_code_generation.rs"
+      test:
+        description: "Test the intermediate code generator with various ASTs and verify that the output matches the expected intermediate code."
+        testScriptLocation: "tests/intermediate_code_generation_test.rs"
+
+  - task:
+      name: "Code Optimization"
+      description: "Optimize the intermediate code for better performance. This step is optional and can be performed if required."
+      language: "Rust"
+      scriptLocation: "src/code_optimization.rs"
+      test:
+        description: "Test the code optimizer to ensure it correctly optimizes various intermediate code inputs."
+        testScriptLocation: "tests/code_optimization_test.rs"
+
+  - task:
+      name: "Code Generation"
+      description: "Develop the code generator for WAM. This will translate the optimized intermediate code into WAM instructions."
+      language: "Rust"
+      scriptLocation: "src/code_generation.rs"
+      test:
+        description: "Test the code generator with various optimized intermediate code inputs and verify that the output matches the expected WAM instructions."
+        testScriptLocation: "tests/code_generation_test.rs"
+
+  - task:
+      name: "Testing and Debugging"
+      description: "Thoroughly test the complete compiler to identify and fix any bugs. Implement additional unit tests, integration tests and system tests as necessary."
+      language: "Rust"
+      scriptLocation: "src/tests.rs"
+      test:
+        description: "Run all the tests for the Prolog compiler and make sure they all pass."
+        testScriptLocation: "tests/tests.rs"
+
+  - task:
+      name: "Documentation"
+      description: "Write comprehensive documentation for the Prolog compiler. This should include usage instructions, details about the architecture of the compiler, and a summary of any known issues or limitations."
+      language: "Markdown"
+      scriptLocation: "docs/"
+
+  - task:
+      name: "Interactive Shell"
+      description: "Develop an interactive shell for the Prolog compiler. This will allow users to execute Prolog commands interactively, providing instant feedback."
+      language: "Rust"
+      scriptLocation: "src/shell.rs"
+      comments:
+        - "The shell should support all Prolog commands and provide clear error messages."
+      test:
+        description: "Test the interactive shell with a variety of Prolog commands."
+        testScriptLocation: "tests/shell_test.rs"
+
+  - task:
+      name: "CLI for Non-interactive Execution"
+      description: "Develop a command-line interface for the Prolog compiler. This will allow users to compile and execute Prolog programs in a non-interactive mode."
+      language: "Rust"
+      scriptLocation: "src/cli.rs"
+      comments:
+        - "Ensure that the CLI provides useful feedback and error messages."
+      test:
+        description: "Test the CLI with a variety of Prolog programs."
+        testScriptLocation: "tests/cli_test.rs"
+
+  - task:
+      name: "Debugging Support"
+      description: "Develop debugging tools for the Prolog compiler. These will help users identify and fix errors in their Prolog programs."
+      language: "Rust"
+      scriptLocation: "src/debugger.rs"
+      comments:
+        - "The debugger should provide useful information about the program's state at each step of execution."
+      test:
+        description: "Test the debugging tools with Prolog programs containing known errors."
+        testScriptLocation: "tests/debugger_test.rs"
+
+  - task:
+      name: "Visual Debugger"
+      description: "Develop a visual debugger for the Prolog compiler. This will allow users to visualize the execution of their Prolog programs, making it easier to identify and fix errors."
+      language: "Rust"
+      scriptLocation: "src/visual_debugger.rs"
+      comments:
+        - "Consider using a library like Tui-rs for creating the visual debugger."
+      test:
+        description: "Test the visual debugger with a variety of Prolog programs."
+        testScriptLocation: "tests/visual_debugger_test.rs"
+  
+  - task:
+      name: "Interactive Shell"
+      description: "Develop an interactive shell for the Prolog compiler. This will allow users to execute Prolog commands interactively, providing instant feedback."
+      language: "Rust"
+      scriptLocation: "src/shell.rs"
+      comments:
+        - "The shell should support all Prolog commands and provide clear error messages."
+      test:
+        description: "Test the interactive shell with a variety of Prolog commands."
+        testScriptLocation: "tests/shell_test.rs"
+
+  - task:
+      name: "CLI for Non-interactive Execution"
+      description: "Develop a command-line interface for the Prolog compiler. This will allow users to compile and execute Prolog programs in a non-interactive mode."
+      language: "Rust"
+      scriptLocation: "src/cli.rs"
+      comments:
+        - "Ensure that the CLI provides useful feedback and error messages."
+      test:
+        description: "Test the CLI with a variety of Prolog programs."
+        testScriptLocation: "tests/cli_test.rs"
+
+  - task:
+      name: "Debugging Support"
+      description: "Develop debugging tools for the Prolog compiler. These will help users identify and fix errors in their Prolog programs."
+      language: "Rust"
+      scriptLocation: "src/debugger.rs"
+      comments:
+        - "The debugger should provide useful information about the program's state at each step of execution."
+      test:
+        description: "Test the debugging tools with Prolog programs containing known errors."
+        testScriptLocation: "tests/debugger_test.rs"
+
+  - task:
+      name: "Visual Debugger"
+      description: "Develop a visual debugger for the Prolog compiler. This will allow users to visualize the execution of their Prolog programs, making it easier to identify and fix errors."
+      language: "Rust"
+      scriptLocation: "src/visual_debugger.rs"
+      comments:
+        - "Consider using a library like Tui-rs for creating the visual debugger."
+      test:
+        description: "Test the visual debugger with a variety of Prolog programs."
+        testScriptLocation: "tests/visual_debugger_test.rs"
+
